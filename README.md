@@ -15,12 +15,12 @@ This project turns your model list into a proxy server that intercepts Anthropic
     ```bash
     node server.js
     ```
-    The server will be running at `http://localhost:3000`.
+    The server will be running at `http://localhost:7777`.
 
 ## How to Intercept
 
 To use this as a proxy for Claude, point your application's Anthropic base URL to:
-`http://localhost:3000/v1/messages`
+`http://localhost:7777/v1/messages`
 
 ### Example for Python (Anthropic SDK):
 ```python
@@ -28,7 +28,7 @@ import anthropic
 
 client = anthropic.Anthropic(
     api_key="anything", # Not valid but required by SDK
-    base_url="http://localhost:3000"
+    base_url="http://localhost:7777"
 )
 
 message = client.messages.create(
@@ -40,4 +40,4 @@ print(message.content)
 ```
 
 ## UI
-Open `http://localhost:3000` in your browser to see the model list and select which model the proxy should route requests to in real-time.
+Open `http://localhost:7777` in your browser to see the model list and select which model the proxy should route requests to in real-time.
