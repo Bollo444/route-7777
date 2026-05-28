@@ -1,0 +1,839 @@
+<html>
+<body>
+    <div style="max-width: 800px; margin: 20px auto; font-family: Arial, sans-serif;">
+        <h1>Bollo Model List</h1>
+        <div id="status" style="margin-bottom: 15px; padding: 15px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3 style="margin: 0;">Routing Rules</h3>
+                <button id="reset-btn" style="padding: 6px 12px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Reset All Conversations</button>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px; align-items: center; font-size: 14px;">
+                <label><strong>Sonnet</strong> Source:</label>
+                <select id="route-sonnet" class="route-select" data-source="sonnet"></select>
+                
+                <label><strong>Haiku</strong> Source:</label>
+                <select id="route-haiku" class="route-select" data-source="haiku"></select>
+                
+                <label><strong>Opus</strong> Source:</label>
+                <select id="route-opus" class="route-select" data-source="opus"></select>
+
+                <label><strong>Default</strong> Fallback:</label>
+                <select id="route-default" class="route-select" data-source="default"></select>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; color: #666; font-size: 14px;">Search and Select a Model to assign it to the current routing group:</div>
+        <select id="model-select" style="padding: 10px; width: 100%; font-size: 16px; margin-bottom: 20px; border-radius: 4px; border: 1px solid #ccc;">
+            <optgroup label="Puter">
+                <!-- <option value="cartesia/sonic">Cartesia Sonic</option> -->
+                <!-- <option value="cartesia/sonic-2">Cartesia Sonic 2</option> -->
+                <!-- <option value="togethercomputer/MoA-1">Together MoA-1</option> -->
+                <!-- <option value="deepcogito/cogito-v2-preview-llama-405B">Deepcogito Cogito V2 Preview Llama 405B</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-R1">Deepseek AI DeepSeek R1</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-schnell">Black Forest Labs FLUX.1 Schnell</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-kontext-dev">Black Forest Labs FLUX.1 Kontext Dev</option> -->
+                <option value="arcee-ai/coder-large">Arcee AI Coder Large</option>
+                <!-- <option value="black-forest-labs/FLUX.1-dev">Black Forest Labs FLUX.1 Dev</option> -->
+                <!-- <option value="marin-community/marin-8b-instruct">Marin Community Marin 8B Instruct</option> -->
+                <!-- <option value="Alibaba-NLP/gte-modernbert-base">Alibaba NLP GTE Modernbert Base</option> -->
+                <!-- <option value="Qwen/Qwen3-Next-80B-A3B-Thinking">Qwen Qwen3 Next 80B A3B Thinking</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-dev-lora">Black Forest Labs FLUX.1 Dev Lora</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-R1-Distill-Qwen-14B">Deepseek AI DeepSeek R1 Distill Qwen 14B</option> -->
+                <!-- <option value="arize-ai/qwen-2-1.5b-instruct">Arize AI Qwen 2 1.5B Instruct</option> -->
+                <option value="arcee-ai/virtuoso-large">Arcee AI Virtuoso Large</option>
+                <!-- <option value="zai-org/GLM-4.5-Air-FP8">Zai Org GLM 4.5 Air FP8</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-krea-dev">Black Forest Labs FLUX.1 Krea Dev</option> -->
+                <option value="arcee-ai/maestro-reasoning">Arcee AI Maestro Reasoning</option>
+                <!-- <option value="togethercomputer/MoA-1-Turbo">Together MoA-1 Turbo</option> -->
+                <!-- <option value="togethercomputer/Refuel-Llm-V2-Small">Together Refuel Llm V2 Small</option> -->
+                <!-- <option value="Qwen/Qwen3-235B-A22B-fp8-tput">Qwen Qwen3 235B A22B Fp8 Tput</option> -->
+                <!-- <option value="Qwen/Qwen2.5-VL-72B-Instruct">Qwen Qwen2.5 VL 72B Instruct</option> -->
+                <!-- <option value="togethercomputer/m2-bert-80M-32k-retrieval">Together M2 Bert 80M 32k Retrieval</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-R1-0528-tput">Deepseek AI DeepSeek R1 0528 Tput</option> -->
+                <!-- <option value="mixedbread-ai/Mxbai-Rerank-Large-V2">Mixedbread AI Mxbai Rerank Large V2</option> -->
+                <!-- <option value="ServiceNow-AI/Apriel-1.5-15b-Thinker">ServiceNow AI Apriel 1.5 15B Thinker</option> -->
+                <!-- <option value="togethercomputer/m2-bert-80M-8k-retrieval">Together M2 Bert 80M 8k Retrieval</option> -->
+                <!-- <option value="WhereIsAI/UAE-Large-V1">WhereIsAI UAE Large V1</option> -->
+                <!-- <option value="togethercomputer/m2-bert-80M-2k-retrieval">Together M2 Bert 80M 2k Retrieval</option> -->
+                <!-- <option value="scb10x/scb10x-typhoon-2-1-gemma3-12b">Scb10x Scb10x Typhoon 2 1 Gemma3 12B</option> -->
+                <!-- <option value="arcee-ai/AFM-4.5B">Arcee AI AFM 4.5B</option> -->
+                <!-- <option value="togethercomputer/Refuel-Llm-V2">Together Refuel Llm V2</option> -->
+                <!-- <option value="intfloat/multilingual-e5-large-instruct">Intfloat Multilingual E5 Large Instruct</option> -->
+                <!-- <option value="Qwen/Qwen2.5-72B-Instruct-Turbo">Qwen Qwen2.5 72B Instruct Turbo</option> -->
+                <!-- <option value="moonshotai/Kimi-K2-Instruct-0905">Moonshotai Kimi K2 Instruct 0905</option> -->
+                <!-- <option value="deepcogito/cogito-v2-preview-deepseek-671b">Deepcogito Cogito V2 Preview Deepseek 671B</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-kontext-max">Black Forest Labs FLUX.1 Kontext Max</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-V3">Deepseek AI DeepSeek V3</option> -->
+                <!-- <option value="upstage/SOLAR-10.7B-Instruct-v1.0">Upstage SOLAR 10.7B Instruct V1.0</option> -->
+                <!-- <option value="Qwen/Qwen2.5-Coder-32B-Instruct">Qwen Qwen2.5 Coder 32B Instruct</option> -->
+                <!-- <option value="deepcogito/cogito-v2-preview-llama-109B-MoE">Deepcogito Cogito V2 Preview Llama 109B MoE</option> -->
+                <!-- <option value="deepcogito/cogito-v2-preview-llama-70B">Deepcogito Cogito V2 Preview Llama 70B</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1.1-pro">Black Forest Labs FLUX.1.1 Pro</option> -->
+                <!-- <option value="arcee_ai/arcee-spotlight">Arcee AI Arcee Spotlight</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-pro">Black Forest Labs FLUX.1 Pro</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free">Deepseek AI DeepSeek R1 Distill Llama 70B Free</option> -->
+                <!-- <option value="moonshotai/Kimi-K2-Instruct">Moonshotai Kimi K2 Instruct</option> -->
+                <!-- <option value="Qwen/QwQ-32B">Qwen QwQ 32B</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-schnell-Free">Black Forest Labs FLUX.1 Schnell Free</option> -->
+                <!-- <option value="Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8">Qwen Qwen3 Coder 480B A35B Instruct FP8</option> -->
+                <!-- <option value="black-forest-labs/FLUX.1-kontext-pro">Black Forest Labs FLUX.1 Kontext Pro</option> -->
+                <!-- <option value="Virtue-AI/VirtueGuard-Text-Lite">Virtue AI VirtueGuard Text Lite</option> -->
+                <!-- <option value="Qwen/Qwen3-235B-A22B-Instruct-2507-tput">Qwen Qwen3 235B A22B Instruct 2507 Tput</option> -->
+                <!-- <option value="Qwen/Qwen2.5-7B-Instruct-Turbo">Qwen Qwen2.5 7B Instruct Turbo</option> -->
+                <!-- <option value="Qwen/Qwen3-Next-80B-A3B-Instruct">Qwen Qwen3 Next 80B A3B Instruct</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-R1-Distill-Llama-70B">Deepseek AI DeepSeek R1 Distill Llama 70B</option> -->
+                <!-- <option value="BAAI/bge-large-en-v1.5">BAAI BGE Large En V1.5</option> -->
+                <!-- <option value="deepseek-ai/DeepSeek-V3.1">Deepseek AI DeepSeek V3.1</option> -->
+                <!-- <option value="Qwen/Qwen2.5-14B-Instruct">Qwen Qwen2.5 14B Instruct</option> -->
+                <!-- <option value="BAAI/bge-base-en-v1.5">BAAI BGE Base En V1.5</option> -->
+                <!-- <option value="model-fallback-test-1">Model Fallback Test 1</option> -->
+                <option value="grok-beta">Grok Beta</option>
+                <option value="grok-vision-beta">Grok Vision Beta</option>
+                <option value="grok-3">Grok 3</option>
+                <option value="grok-3-fast">Grok 3 Fast</option>
+                <option value="grok-3-mini">Grok 3 Mini</option>
+                <option value="grok-3-mini-fast">Grok 3 Mini Fast</option>
+                <option value="grok-2-vision">Grok 2 Vision</option>
+                <option value="grok-2">Grok 2</option>
+                <option value="deepseek-chat">Deepseek Chat</option>
+                <option value="deepseek-reasoner">Deepseek Reasoner</option>
+                <!-- <option value="fake">Fake</option> -->
+                <!-- <option value="costly">Costly</option> -->
+                <!-- <option value="abuse">Abuse</option> -->
+            </optgroup>
+            <optgroup label="OpenAI">
+                <option value="gpt-5-2025-08-07">GPT-5 (2025-08-07)</option>
+                <option value="gpt-5">GPT-5</option>
+                <option value="gpt-5-mini-2025-08-07">GPT-5 Mini (2025-08-07)</option>
+                <option value="gpt-5-mini">GPT-5 Mini</option>
+                <option value="gpt-5-nano-2025-08-07">GPT-5 Nano (2025-08-07)</option>
+                <option value="gpt-5-nano">GPT-5 Nano</option>
+                <option value="gpt-5-chat-latest">GPT-5 Chat Latest</option>
+                <option value="gpt-4o">GPT-4o</option>
+                <option value="gpt-4o-mini">GPT-4o Mini</option>
+                <option value="o1">O1</option>
+                <option value="o1-mini">O1 Mini</option>
+                <!-- <option value="o1-pro">O1 Pro</option> -->
+                <option value="o3">O3</option>
+                <option value="o3-mini">O3 Mini</option>
+                <option value="o4-mini">O4 Mini</option>
+                <option value="gpt-4.1">GPT-4.1</option>
+                <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
+                <option value="gpt-4.1-nano">GPT-4.1 Nano</option>
+                <!-- <option value="gpt-4.5-preview">GPT-4.5 Preview</option> -->
+                <!-- <option value="openai/gpt-oss-20b">OpenAI GPT-OSS 20B</option> -->
+                <!-- <option value="openai/gpt-oss-120b">OpenAI GPT-OSS 120B</option> -->
+                <!-- <option value="openai/whisper-large-v3">OpenAI Whisper Large V3</option> -->
+                <option value="openrouter:openai/gpt-5-image">OpenRouter OpenAI GPT-5 Image</option>
+                <option value="openrouter:openai/o3-deep-research">OpenRouter OpenAI O3 Deep Research</option>
+                <option value="openrouter:openai/o4-mini-deep-research">OpenRouter OpenAI O4 Mini Deep Research</option>
+                <option value="openrouter:openai/gpt-5-pro">OpenRouter OpenAI GPT-5 Pro</option>
+                <option value="openrouter:openai/gpt-5-codex">OpenRouter OpenAI GPT-5 Codex</option>
+                <option value="openrouter:openai/gpt-5-chat">OpenRouter OpenAI GPT-5 Chat</option>
+                <option value="openrouter:openai/gpt-5">OpenRouter OpenAI GPT-5</option>
+                <option value="openrouter:openai/gpt-5-mini">OpenRouter OpenAI GPT-5 Mini</option>
+                <option value="openrouter:openai/gpt-5-nano">OpenRouter OpenAI GPT-5 Nano</option>
+                <option value="openrouter:openai/gpt-oss-120b">OpenRouter OpenAI GPT-OSS 120B</option>
+                <option value="openrouter:openai/gpt-oss-20b:free">OpenRouter OpenAI GPT-OSS 20B (Free)</option>
+                <option value="openrouter:openai/gpt-oss-20b">OpenRouter OpenAI GPT-OSS 20B</option>
+                <option value="openrouter:openai/gpt-4o-audio-preview">OpenRouter OpenAI GPT-4o Audio Preview</option>
+                <option value="openrouter:openai/codex-mini">OpenRouter OpenAI Codex Mini</option>
+                <option value="openrouter:openai/o4-mini-high">OpenRouter OpenAI O4 Mini High</option>
+                <option value="openrouter:openai/o3">OpenRouter OpenAI O3</option>
+                <option value="openrouter:openai/o4-mini">OpenRouter OpenAI O4 Mini</option>
+                <option value="openrouter:openai/gpt-4.1">OpenRouter OpenAI GPT-4.1</option>
+                <option value="openrouter:openai/gpt-4.1-mini">OpenRouter OpenAI GPT-4.1 Mini</option>
+                <option value="openrouter:openai/gpt-4.1-nano">OpenRouter OpenAI GPT-4.1 Nano</option>
+                <option value="openrouter:openai/o1-pro">OpenRouter OpenAI O1 Pro</option>
+                <option value="openrouter:openai/gpt-4o-mini-search-preview">OpenRouter OpenAI GPT-4o Mini Search Preview</option>
+                <option value="openrouter:openai/gpt-4o-search-preview">OpenRouter OpenAI GPT-4o Search Preview</option>
+                <option value="openrouter:openai/o3-mini-high">OpenRouter OpenAI O3 Mini High</option>
+                <option value="openrouter:openai/o3-mini">OpenRouter OpenAI O3 Mini</option>
+                <option value="openrouter:openai/o1">OpenRouter OpenAI O1</option>
+                <option value="openrouter:openai/gpt-4o-2024-11-20">OpenRouter OpenAI GPT-4o 2024-11-20</option>
+                <option value="openrouter:openai/o1-mini">OpenRouter OpenAI O1 Mini</option>
+                <option value="openrouter:openai/o1-mini-2024-09-12">OpenRouter OpenAI O1 Mini 2024-09-12</option>
+                <option value="openrouter:openai/chatgpt-4o-latest">OpenRouter OpenAI ChatGPT-4o Latest</option>
+                <option value="openrouter:openai/gpt-4o-2024-08-06">OpenRouter OpenAI GPT-4o 2024-08-06</option>
+                <option value="openrouter:openai/gpt-4o-mini">OpenRouter OpenAI GPT-4o Mini</option>
+                <option value="openrouter:openai/gpt-4o-mini-2024-07-18">OpenRouter OpenAI GPT-4o Mini 2024-07-18</option>
+                <option value="openrouter:openai/gpt-4o">OpenRouter OpenAI GPT-4o</option>
+                <option value="openrouter:openai/gpt-4o:extended">OpenRouter OpenAI GPT-4o Extended</option>
+                <option value="openrouter:openai/gpt-4o-2024-05-13">OpenRouter OpenAI GPT-4o 2024-05-13</option>
+                <option value="openrouter:openai/gpt-4-turbo">OpenRouter OpenAI GPT-4 Turbo</option>
+                <option value="openrouter:openai/gpt-3.5-turbo-0613">OpenRouter OpenAI GPT-3.5 Turbo 0613</option>
+                <option value="openrouter:openai/gpt-4-turbo-preview">OpenRouter OpenAI GPT-4 Turbo Preview</option>
+                <option value="openrouter:openai/gpt-4-1106-preview">OpenRouter OpenAI GPT-4 1106 Preview</option>
+                <option value="openrouter:openai/gpt-3.5-turbo-instruct">OpenRouter OpenAI GPT-3.5 Turbo Instruct</option>
+                <option value="openrouter:openai/gpt-3.5-turbo-16k">OpenRouter OpenAI GPT-3.5 Turbo 16k</option>
+                <option value="openrouter:openai/gpt-3.5-turbo">OpenRouter OpenAI GPT-3.5 Turbo</option>
+                <option value="openrouter:openai/gpt-4">OpenRouter OpenAI GPT-4</option>
+                <option value="openrouter:openai/gpt-4-0314">OpenRouter OpenAI GPT-4 0314</option>
+            </optgroup>
+            <optgroup label="Anthropic">
+                <option value="claude-sonnet-4-5-20250929">Claude Sonnet 4.5 (20250929)</option>
+                <option value="claude-sonnet-4.5">Claude Sonnet 4.5</option>
+                <option value="claude-sonnet-4-5">Claude Sonnet 4.5</option>
+                <option value="claude-opus-4-1-20250805">Claude Opus 4.1 (20250805)</option>
+                <option value="claude-opus-4-1">Claude Opus 4.1</option>
+                <option value="claude-opus-4-20250514">Claude Opus 4 (20250514)</option>
+                <option value="claude-opus-4">Claude Opus 4</option>
+                <option value="claude-opus-4-latest">Claude Opus 4 Latest</option>
+                <option value="claude-sonnet-4-20250514">Claude Sonnet 4 (20250514)</option>
+                <option value="claude-sonnet-4">Claude Sonnet 4</option>
+                <option value="claude-sonnet-4-latest">Claude Sonnet 4 Latest</option>
+                <option value="claude-3-7-sonnet-20250219">Claude 3.7 Sonnet (20250219)</option>
+                <option value="claude-3-7-sonnet-latest">Claude 3.7 Sonnet Latest</option>
+                <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet (20241022)</option>
+                <option value="claude-3-5-sonnet-latest">Claude 3.5 Sonnet Latest</option>
+                <option value="claude-3-5-sonnet-20240620">Claude 3.5 Sonnet (20240620)</option>
+                <option value="claude-3-haiku-20240307">Claude 3 Haiku (20240307)</option>
+                <option value="openrouter:anthropic/claude-haiku-4.5">OpenRouter Anthropic Claude Haiku 4.5</option>
+                <option value="openrouter:anthropic/claude-sonnet-4.5">OpenRouter Anthropic Claude Sonnet 4.5</option>
+                <option value="openrouter:anthropic/claude-opus-4.1">OpenRouter Anthropic Claude Opus 4.1</option>
+                <option value="openrouter:anthropic/claude-opus-4">OpenRouter Anthropic Claude Opus 4</option>
+                <option value="openrouter:anthropic/claude-sonnet-4">OpenRouter Anthropic Claude Sonnet 4</option>
+                <option value="openrouter:anthropic/claude-3.7-sonnet">OpenRouter Anthropic Claude 3.7 Sonnet</option>
+                <option value="openrouter:anthropic/claude-3.7-sonnet:thinking">OpenRouter Anthropic Claude 3.7 Sonnet (Thinking)</option>
+                <option value="openrouter:anthropic/claude-3.5-haiku">OpenRouter Anthropic Claude 3.5 Haiku</option>
+                <option value="openrouter:anthropic/claude-3.5-haiku-20241022">OpenRouter Anthropic Claude 3.5 Haiku 20241022</option>
+                <option value="openrouter:anthropic/claude-3.5-sonnet">OpenRouter Anthropic Claude 3.5 Sonnet</option>
+                <option value="openrouter:anthropic/claude-3.5-sonnet-20240620">OpenRouter Anthropic Claude 3.5 Sonnet 20240620</option>
+                <option value="openrouter:anthropic/claude-3-haiku">OpenRouter Anthropic Claude 3 Haiku</option>
+                <option value="openrouter:anthropic/claude-3-opus">OpenRouter Anthropic Claude 3 Opus</option>
+            </optgroup>
+            <optgroup label="Mistral">
+                <option value="mistralai/Mistral-Small-24B-Instruct-2501">Mistral Small 24B Instruct 2501</option>
+                <option value="mistralai/Mistral-7B-Instruct-v0.3">Mistral 7B Instruct v0.3</option>
+                <option value="mistralai/Mixtral-8x7B-Instruct-v0.1">Mixtral 8x7B Instruct v0.1</option>
+                <option value="mistralai/Mistral-7B-Instruct-v0.1">Mistral 7B Instruct v0.1</option>
+                <option value="mistralai/Mistral-7B-Instruct-v0.2">Mistral 7B Instruct v0.2</option>
+                <option value="mistral-large-latest">Mistral Large Latest</option>
+                <option value="mistral-medium-2508">Mistral Medium 2508</option>
+                <option value="mistral-medium-latest">Mistral Medium Latest</option>
+                <option value="mistral-medium">Mistral Medium</option>
+                <option value="ministral-3b-2410">Ministral 3B 2410</option>
+                <option value="ministral-3b-latest">Ministral 3B Latest</option>
+                <option value="ministral-8b-2410">Ministral 8B 2410</option>
+                <option value="ministral-8b-latest">Ministral 8B Latest</option>
+                <option value="open-mistral-7b">Open Mistral 7B</option>
+                <option value="mistral-tiny">Mistral Tiny</option>
+                <option value="mistral-tiny-2312">Mistral Tiny 2312</option>
+                <option value="open-mistral-nemo">Open Mistral Nemo</option>
+                <option value="open-mistral-nemo-2407">Open Mistral Nemo 2407</option>
+                <option value="mistral-tiny-2407">Mistral Tiny 2407</option>
+                <option value="mistral-tiny-latest">Mistral Tiny Latest</option>
+                <option value="open-mixtral-8x7b">Open Mixtral 8x7B</option>
+                <option value="mistral-small">Mistral Small</option>
+                <option value="mistral-small-2312">Mistral Small 2312</option>
+                <option value="open-mixtral-8x22b">Open Mixtral 8x22B</option>
+                <option value="open-mixtral-8x22b-2404">Open Mixtral 8x22B 2404</option>
+                <option value="pixtral-large-2411">Pixtral Large 2411</option>
+                <option value="pixtral-large-latest">Pixtral Large Latest</option>
+                <option value="mistral-large-pixtral-2411">Mistral Large Pixtral 2411</option>
+                <option value="codestral-2508">Codestral 2508</option>
+                <option value="codestral-latest">Codestral Latest</option>
+                <option value="devstral-small-2507">Devstral Small 2507</option>
+                <option value="devstral-small-latest">Devstral Small Latest</option>
+                <option value="pixtral-12b-2409">Pixtral 12B 2409</option>
+                <option value="pixtral-12b">Pixtral 12B</option>
+                <option value="pixtral-12b-latest">Pixtral 12B Latest</option>
+                <option value="mistral-small-2506">Mistral Small 2506</option>
+                <option value="mistral-small-latest">Mistral Small Latest</option>
+                <option value="magistral-medium-2509">Magistral Medium 2509</option>
+                <option value="magistral-medium-latest">Magistral Medium Latest</option>
+                <option value="magistral-small-2509">Magistral Small 2509</option>
+                <option value="magistral-small-latest">Magistral Small Latest</option>
+                <option value="mistral-moderation-2411">Mistral Moderation 2411</option>
+                <option value="mistral-moderation-latest">Mistral Moderation Latest</option>
+                <option value="mistral-ocr-2505">Mistral OCR 2505</option>
+                <option value="mistral-ocr-latest">Mistral OCR Latest</option>
+                <option value="openrouter:mistralai/codestral-2508">OpenRouter MistralAI Codestral 2508</option>
+                <option value="openrouter:mistralai/mistral-medium-3.1">OpenRouter MistralAI Mistral Medium 3.1</option>
+                <option value="openrouter:mistralai/devstral-medium">OpenRouter MistralAI Devstral Medium</option>
+                <option value="openrouter:mistralai/devstral-small">OpenRouter MistralAI Devstral Small</option>
+                <option value="openrouter:mistralai/mistral-small-3.2-24b-instruct:free">OpenRouter MistralAI Mistral Small 3.2 24B Instruct (Free)</option>
+                <option value="openrouter:mistralai/mistral-small-3.2-24b-instruct">OpenRouter MistralAI Mistral Small 3.2 24B Instruct</option>
+                <option value="openrouter:mistralai/magistral-small-2506">OpenRouter MistralAI Magistral Small 2506</option>
+                <option value="openrouter:mistralai/magistral-medium-2506:thinking">OpenRouter MistralAI Magistral Medium 2506 (Thinking)</option>
+                <option value="openrouter:mistralai/magistral-medium-2506">OpenRouter MistralAI Magistral Medium 2506</option>
+                <option value="openrouter:mistralai/devstral-small-2505:free">OpenRouter MistralAI Devstral Small 2505 (Free)</option>
+                <option value="openrouter:mistralai/devstral-small-2505">OpenRouter MistralAI Devstral Small 2505</option>
+                <option value="openrouter:mistralai/mistral-medium-3">OpenRouter MistralAI Mistral Medium 3</option>
+                <option value="openrouter:mistralai/mistral-small-3.1-24b-instruct:free">OpenRouter MistralAI Mistral Small 3.1 24B Instruct (Free)</option>
+                <option value="openrouter:mistralai/mistral-small-3.1-24b-instruct">OpenRouter MistralAI Mistral Small 3.1 24B Instruct</option>
+                <option value="openrouter:mistralai/mistral-saba">OpenRouter MistralAI Mistral Saba</option>
+                <option value="openrouter:mistralai/mistral-small-24b-instruct-2501:free">OpenRouter MistralAI Mistral Small 24B Instruct 2501 (Free)</option>
+                <option value="openrouter:mistralai/mistral-small-24b-instruct-2501">OpenRouter MistralAI Mistral Small 24B Instruct 2501</option>
+                <option value="openrouter:mistralai/codestral-2501">OpenRouter MistralAI Codestral 2501</option>
+                <option value="openrouter:mistralai/mistral-large-2411">OpenRouter MistralAI Mistral Large 2411</option>
+                <option value="openrouter:mistralai/mistral-large-2407">OpenRouter MistralAI Mistral Large 2407</option>
+                <option value="openrouter:mistralai/pixtral-large-2411">OpenRouter MistralAI Pixtral Large 2411</option>
+                <option value="openrouter:mistralai/ministral-8b">OpenRouter MistralAI Ministral 8B</option>
+                <option value="openrouter:mistralai/ministral-3b">OpenRouter MistralAI Ministral 3B</option>
+                <option value="openrouter:mistralai/pixtral-12b">OpenRouter MistralAI Pixtral 12B</option>
+                <option value="openrouter:mistralai/mistral-nemo:free">OpenRouter MistralAI Mistral Nemo (Free)</option>
+                <option value="openrouter:mistralai/mistral-nemo">OpenRouter MistralAI Mistral Nemo</option>
+                <option value="openrouter:mistralai/mistral-7b-instruct:free">OpenRouter MistralAI Mistral 7B Instruct (Free)</option>
+                <option value="openrouter:mistralai/mistral-7b-instruct">OpenRouter MistralAI Mistral 7B Instruct</option>
+                <option value="openrouter:mistralai/mistral-7b-instruct-v0.3">OpenRouter MistralAI Mistral 7B Instruct v0.3</option>
+                <option value="openrouter:mistralai/mixtral-8x22b-instruct">OpenRouter MistralAI Mixtral 8x22B Instruct</option>
+                <option value="openrouter:mistralai/mistral-large">OpenRouter MistralAI Mistral Large</option>
+                <option value="openrouter:mistralai/mistral-small">OpenRouter MistralAI Mistral Small</option>
+                <option value="openrouter:mistralai/mistral-tiny">OpenRouter MistralAI Mistral Tiny</option>
+                <option value="openrouter:mistralai/mistral-7b-instruct-v0.2">OpenRouter MistralAI Mistral 7B Instruct v0.2</option>
+                <option value="openrouter:mistralai/mixtral-8x7b-instruct">OpenRouter MistralAI Mixtral 8x7B Instruct</option>
+                <option value="openrouter:mistralai/mistral-7b-instruct-v0.1">OpenRouter MistralAI Mistral 7B Instruct v0.1</option>
+            </optgroup>
+            <optgroup label="Google">
+                <option value="google/gemma-3n-E4B-it">Google Gemma 3N E4B IT</option>
+                <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+                <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+                <option value="openrouter:google/gemini-2.5-flash-image">OpenRouter Google Gemini 2.5 Flash Image</option>
+                <option value="openrouter:google/gemini-2.5-flash-preview-09-2025">OpenRouter Google Gemini 2.5 Flash Preview 09-2025</option>
+                <option value="openrouter:google/gemini-2.5-flash-lite-preview-09-2025">OpenRouter Google Gemini 2.5 Flash Lite Preview 09-2025</option>
+                <option value="openrouter:google/gemini-2.5-flash-image-preview">OpenRouter Google Gemini 2.5 Flash Image Preview</option>
+                <option value="openrouter:google/gemini-2.5-flash-lite">OpenRouter Google Gemini 2.5 Flash Lite</option>
+                <option value="openrouter:google/gemma-3n-e2b-it:free">OpenRouter Google Gemma 3N E2B IT (Free)</option>
+                <option value="openrouter:google/gemma-3n-e4b-it:free">OpenRouter Google Gemma 3N E4B IT (Free)</option>
+                <option value="openrouter:google/gemma-3n-e4b-it">OpenRouter Google Gemma 3N E4B IT</option>
+                <option value="openrouter:google/gemini-2.5-flash-lite-preview-06-17">OpenRouter Google Gemini 2.5 Flash Lite Preview 06-17</option>
+                <option value="openrouter:google/gemini-2.5-flash">OpenRouter Google Gemini 2.5 Flash</option>
+                <option value="openrouter:google/gemini-2.5-pro">OpenRouter Google Gemini 2.5 Pro</option>
+                <option value="openrouter:google/gemini-2.5-pro-preview">OpenRouter Google Gemini 2.5 Pro Preview</option>
+                <option value="openrouter:google/gemini-2.5-pro-preview-05-06">OpenRouter Google Gemini 2.5 Pro Preview 05-06</option>
+                <option value="openrouter:google/gemma-3-4b-it:free">OpenRouter Google Gemma 3 4B IT (Free)</option>
+                <option value="openrouter:google/gemma-3-4b-it">OpenRouter Google Gemma 3 4B IT</option>
+                <option value="openrouter:google/gemma-3-12b-it:free">OpenRouter Google Gemma 3 12B IT (Free)</option>
+                <option value="openrouter:google/gemma-3-12b-it">OpenRouter Google Gemma 3 12B IT</option>
+                <option value="openrouter:google/gemma-3-27b-it:free">OpenRouter Google Gemma 3 27B IT (Free)</option>
+                <option value="openrouter:google/gemma-3-27b-it">OpenRouter Google Gemma 3 27B IT</option>
+                <option value="openrouter:google/gemini-2.0-flash-lite-001">OpenRouter Google Gemini 2.0 Flash Lite 001</option>
+                <option value="openrouter:google/gemini-2.0-flash-001">OpenRouter Google Gemini 2.0 Flash 001</option>
+                <option value="openrouter:google/gemini-2.0-flash-exp:free">OpenRouter Google Gemini 2.0 Flash Exp (Free)</option>
+                <option value="openrouter:google/gemma-2-27b-it">OpenRouter Google Gemma 2 27B IT</option>
+                <option value="openrouter:google/gemma-2-9b-it:free">OpenRouter Google Gemma 2 9B IT (Free)</option>
+                <option value="openrouter:google/gemma-2-9b-it">OpenRouter Google Gemma 2 9B IT</option>
+            </optgroup>
+            <optgroup label="Cohere">
+                <option value="openrouter:cohere/command-a">OpenRouter Cohere Command A</option>
+                <option value="openrouter:cohere/command-r7b-12-2024">OpenRouter Cohere Command R7B 12-2024</option>
+                <option value="openrouter:cohere/command-r-plus-08-2024">OpenRouter Cohere Command R Plus 08-2024</option>
+                <option value="openrouter:cohere/command-r-08-2024">OpenRouter Cohere Command R 08-2024</option>
+            </optgroup>
+            <optgroup label="Meta">
+                <option value="meta-llama/Meta-Llama-Guard-3-8B">Meta Llama Guard 3 8B</option>
+                <option value="meta-llama/LlamaGuard-2-8b">Meta LlamaGuard 2 8b</option>
+                <option value="meta-llama/Llama-3.2-3B-Instruct-Turbo">Meta Llama 3.2 3B Instruct Turbo</option>
+                <option value="meta-llama/Llama-3.3-70B-Instruct-Turbo">Meta Llama 3.3 70B Instruct Turbo</option>
+                <option value="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free">Meta Llama 3.3 70B Instruct Turbo Free</option>
+                <option value="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">Meta Llama 3.1 70B Instruct Turbo</option>
+                <option value="meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo">Meta Llama 3.1 405B Instruct Turbo</option>
+                <option value="meta-llama/Llama-3-8B-Instruct-Lite">Meta Llama 3 8B Instruct Lite</option>
+                <option value="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8">Meta Llama 4 Maverick 17B 128E Instruct FP8</option>
+                <option value="meta-llama/Llama-2-13b-chat-hf">Meta Llama 2 13b Chat HF</option>
+                <option value="meta-llama/Meta-Llama-3.1-405B-Instruct-Lite-Pro">Meta Llama 3.1 405B Instruct Lite Pro</option>
+                <option value="meta-llama/Meta-Llama-3-70B-Instruct-Lite">Meta Llama 3 70B Instruct Lite</option>
+                <option value="Meta-Llama/Llama-Guard-7b">Meta Llama Guard 7b</option>
+                <option value="meta-llama/Llama-Guard-4-12B">Meta Llama Guard 4 12B</option>
+                <option value="meta-llama/Llama-4-Scout-17B-16E-Instruct">Meta Llama 4 Scout 17B 16E Instruct</option>
+                <option value="meta-llama/Llama-Guard-3-11B-Vision-Turbo">Meta Llama Guard 3 11B Vision Turbo</option>
+                <option value="meta-llama/Meta-Llama-3-70B-Instruct-Turbo">Meta Llama 3 70B Instruct Turbo</option>
+                <option value="meta-llama/Llama-3-70b-chat-hf">Meta Llama 3 70b Chat HF</option>
+                <option value="meta-llama/Llama-3.1-405B-Instruct">Meta Llama 3.1 405B Instruct</option>
+                <option value="meta-llama/Llama-3-70b-hf">Meta Llama 3 70b HF</option>
+                <option value="meta-llama/Meta-Llama-3.1-70B-Instruct-Reference">Meta Llama 3.1 70B Instruct Reference</option>
+                <option value="meta-llama/Llama-3.2-1B-Instruct">Meta Llama 3.2 1B Instruct</option>
+                <option value="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference">Meta Llama 3.1 8B Instruct Reference</option>
+                <option value="meta-llama/Meta-Llama-3-8B-Instruct">Meta Llama 3 8B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.3-8b-instruct:free">OpenRouter Meta-Llama Llama 3.3 8B Instruct (Free)</option>
+                <option value="openrouter:meta-llama/llama-guard-4-12b">OpenRouter Meta-Llama Llama Guard 4 12B</option>
+                <option value="openrouter:meta-llama/llama-4-maverick:free">OpenRouter Meta-Llama Llama 4 Maverick (Free)</option>
+                <option value="openrouter:meta-llama/llama-4-maverick">OpenRouter Meta-Llama Llama 4 Maverick</option>
+                <option value="openrouter:meta-llama/llama-4-scout:free">OpenRouter Meta-Llama Llama 4 Scout (Free)</option>
+                <option value="openrouter:meta-llama/llama-4-scout">OpenRouter Meta-Llama Llama 4 Scout</option>
+                <option value="openrouter:meta-llama/llama-guard-3-8b">OpenRouter Meta-Llama Llama Guard 3 8B</option>
+                <option value="openrouter:meta-llama/llama-3.3-70b-instruct:free">OpenRouter Meta-Llama Llama 3.3 70B Instruct (Free)</option>
+                <option value="openrouter:meta-llama/llama-3.3-70b-instruct">OpenRouter Meta-Llama Llama 3.3 70B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.2-3b-instruct:free">OpenRouter Meta-Llama Llama 3.2 3B Instruct (Free)</option>
+                <option value="openrouter:meta-llama/llama-3.2-3b-instruct">OpenRouter Meta-Llama Llama 3.2 3B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.2-1b-instruct">OpenRouter Meta-Llama Llama 3.2 1B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.2-90b-vision-instruct">OpenRouter Meta-Llama Llama 3.2 90B Vision Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.2-11b-vision-instruct">OpenRouter Meta-Llama Llama 3.2 11B Vision Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.1-405b">OpenRouter Meta-Llama Llama 3.1 405B</option>
+                <option value="openrouter:meta-llama/llama-3.1-8b-instruct">OpenRouter Meta-Llama Llama 3.1 8B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.1-405b-instruct">OpenRouter Meta-Llama Llama 3.1 405B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3.1-70b-instruct">OpenRouter Meta-Llama Llama 3.1 70B Instruct</option>
+                <option value="openrouter:meta-llama/llama-guard-2-8b">OpenRouter Meta-Llama Llama Guard 2 8B</option>
+                <option value="openrouter:meta-llama/llama-3-8b-instruct">OpenRouter Meta-Llama Llama 3 8B Instruct</option>
+                <option value="openrouter:meta-llama/llama-3-70b-instruct">OpenRouter Meta-Llama Llama 3 70B Instruct</option>
+            </optgroup>02
+            <optgroup label="Other">
+                <option value="codellama/CodeLlama-34b-Instruct-hf">CodeLlama 34b Instruct HF</option>
+                <option value="nvidia/NVIDIA-Nemotron-Nano-9B-v2">NVIDIA Nemotron Nano 9B v2</option>
+                <option value="openrouter:inclusionai/ling-1t">OpenRouter InclusionAI Ling 1T</option>
+                <option value="openrouter:nvidia/llama-3.3-nemotron-super-49b-v1.5">OpenRouter NVIDIA Llama 3.3 Nemotron Super 49B v1.5</option>
+                <option value="openrouter:baidu/ernie-4.5-21b-a3b-thinking">OpenRouter Baidu Ernie 4.5 21B A3B Thinking</option>
+                <option value="openrouter:deepseek/deepseek-v3.2-exp">OpenRouter Deepseek Deepseek V3.2 Exp</option>
+                <option value="openrouter:thedrummer/cydonia-24b-v4.1">OpenRouter Thedrummer Cydonia 24B v4.1</option>
+                <option value="openrouter:relace/relace-apply-3">OpenRouter Relace Relace Apply 3</option>
+                <option value="openrouter:deepseek/deepseek-v3.1-terminus">OpenRouter Deepseek Deepseek V3.1 Terminus</option>
+                <option value="openrouter:x-ai/grok-4-fast">OpenRouter X-AI Grok 4 Fast</option>
+                <option value="openrouter:alibaba/tongyi-deepresearch-30b-a3b:free">OpenRouter Alibaba Tongyi Deepresearch 30B A3B (Free)</option>
+                <option value="openrouter:alibaba/tongyi-deepresearch-30b-a3b">OpenRouter Alibaba Tongyi Deepresearch 30B A3B</option>
+                <option value="openrouter:arcee-ai/afm-4.5b">OpenRouter Arcee-AI AFM 4.5B</option>
+                <option value="openrouter:opengvlab/internvl3-78b">OpenRouter Opengvlab Internvl3 78B</option>
+                <option value="openrouter:meituan/longcat-flash-chat:free">OpenRouter Meituan Longcat Flash Chat (Free)</option>
+                <option value="openrouter:meituan/longcat-flash-chat">OpenRouter Meituan Longcat Flash Chat</option>
+                <option value="openrouter:nvidia/nemotron-nano-9b-v2:free">OpenRouter NVIDIA Nemotron Nano 9B v2 (Free)</option>
+                <option value="openrouter:nvidia/nemotron-nano-9b-v2">OpenRouter NVIDIA Nemotron Nano 9B v2</option>
+                <option value="openrouter:moonshotai/kimi-k2-0905">OpenRouter MoonshotAI Kimi K2 0905</option>
+                <option value="openrouter:deepcogito/cogito-v2-preview-llama-109b-moe">OpenRouter Deepcogito Cogito V2 Preview Llama 109B MoE</option>
+                <option value="openrouter:deepcogito/cogito-v2-preview-deepseek-671b">OpenRouter Deepcogito Cogito V2 Preview Deepseek 671B</option>
+                <option value="openrouter:stepfun-ai/step3">OpenRouter Stepfun-AI Step3</option>
+                <option value="openrouter:x-ai/grok-code-fast-1">OpenRouter X-AI Grok Code Fast 1</option>
+                <option value="openrouter:nousresearch/hermes-4-70b">OpenRouter Nousresearch Hermes 4 70B</option>
+                <option value="openrouter:nousresearch/hermes-4-405b">OpenRouter Nousresearch Hermes 4 405B</option>
+                <option value="openrouter:deepseek/deepseek-chat-v3.1:free">OpenRouter Deepseek Deepseek Chat V3.1 (Free)</option>
+                <option value="openrouter:deepseek/deepseek-chat-v3.1">OpenRouter Deepseek Deepseek Chat V3.1</option>
+                <option value="openrouter:baidu/ernie-4.5-21b-a3b">OpenRouter Baidu Ernie 4.5 21B A3B</option>
+                <option value="openrouter:baidu/ernie-4.5-vl-28b-a3b">OpenRouter Baidu Ernie 4.5 VL 28B A3B</option>
+                <option value="openrouter:z-ai/glm-4.5v">OpenRouter Z-AI GLM 4.5V</option>
+                <option value="openrouter:ai21/jamba-mini-1.7">OpenRouter AI21 Jamba Mini 1.7</option>
+                <option value="openrouter:ai21/jamba-large-1.7">OpenRouter AI21 Jamba Large 1.7</option>
+                <option value="openrouter:z-ai/glm-4.5">OpenRouter Z-AI GLM 4.5</option>
+                <option value="openrouter:z-ai/glm-4.5-air:free">OpenRouter Z-AI GLM 4.5 Air (Free)</option>
+                <option value="openrouter:z-ai/glm-4.5-air">OpenRouter Z-AI GLM 4.5 Air</option>
+                <option value="openrouter:z-ai/glm-4-32b">OpenRouter Z-AI GLM 4 32B</option>
+                <option value="openrouter:bytedance/ui-tars-1.5-7b">OpenRouter Bytedance UI Tars 1.5 7B</option>
+                <option value="openrouter:switchpoint/router">OpenRouter Switchpoint Router</option>
+                <option value="openrouter:moonshotai/kimi-k2:free">OpenRouter MoonshotAI Kimi K2 (Free)</option>
+                <option value="openrouter:moonshotai/kimi-k2">OpenRouter MoonshotAI Kimi K2</option>
+                <option value="openrouter:thudm/glm-4.1v-9b-thinking">OpenRouter THUDM GLM 4.1V 9B Thinking</option>
+                <option value="openrouter:cognitivecomputations/dolphin-mistral-24b-venice-edition:free">OpenRouter Cognitivecomputations Dolphin Mistral 24B Venice Edition (Free)</option>
+                <option value="openrouter:x-ai/grok-4">OpenRouter X-AI Grok 4</option>
+                <option value="openrouter:tencent/hunyuan-a13b-instruct:free">OpenRouter Tencent Hunyuan A13B Instruct (Free)</option>
+                <option value="openrouter:tencent/hunyuan-a13b-instruct">OpenRouter Tencent Hunyuan A13B Instruct</option>
+                <option value="openrouter:tngtech/deepseek-r1t2-chimera:free">OpenRouter TNGTech Deepseek R1T2 Chimera (Free)</option>
+                <option value="openrouter:tngtech/deepseek-r1t2-chimera">OpenRouter TNGTech Deepseek R1T2 Chimera</option>
+                <option value="openrouter:morph/morph-v3-large">OpenRouter Morph Morph V3 Large</option>
+                <option value="openrouter:morph/morph-v3-fast">OpenRouter Morph Morph V3 Fast</option>
+                <option value="openrouter:baidu/ernie-4.5-vl-424b-a47b">OpenRouter Baidu Ernie 4.5 VL 424B A47B</option>
+                <option value="openrouter:baidu/ernie-4.5-300b-a47b">OpenRouter Baidu Ernie 4.5 300B A47B</option>
+                <option value="openrouter:thedrummer/anubis-70b-v1.1">OpenRouter Thedrummer Anubis 70B v1.1</option>
+                <option value="openrouter:inception/mercury">OpenRouter Inception Mercury</option>
+                <option value="openrouter:minimax/minimax-m1">OpenRouter Minimax Minimax M1</option>
+                <option value="openrouter:moonshotai/kimi-dev-72b:free">OpenRouter MoonshotAI Kimi Dev 72B (Free)</option>
+                <option value="openrouter:moonshotai/kimi-dev-72b">OpenRouter MoonshotAI Kimi Dev 72B</option>
+                <option value="openrouter:x-ai/grok-3-mini">OpenRouter X-AI Grok 3 Mini</option>
+                <option value="openrouter:x-ai/grok-3">OpenRouter X-AI Grok 3</option>
+                <option value="openrouter:deepseek/deepseek-r1-0528-qwen3-8b:free">OpenRouter Deepseek Deepseek R1 0528 Qwen3 8B (Free)</option>
+                <option value="openrouter:deepseek/deepseek-r1-0528-qwen3-8b">OpenRouter Deepseek Deepseek R1 0528 Qwen3 8B</option>
+                <option value="openrouter:deepseek/deepseek-r1-0528:free">OpenRouter Deepseek Deepseek R1 0528 (Free)</option>
+                <option value="openrouter:deepseek/deepseek-r1-0528">OpenRouter Deepseek Deepseek R1 0528</option>
+                <option value="openrouter:nousresearch/deephermes-3-mistral-24b-preview">OpenRouter Nousresearch Deephermes 3 Mistral 24B Preview</option>
+                <option value="openrouter:arcee-ai/spotlight">OpenRouter Arcee-AI Spotlight</option>
+                <option value="openrouter:arcee-ai/maestro-reasoning">OpenRouter Arcee-AI Maestro Reasoning</option>
+                <option value="openrouter:arcee-ai/virtuoso-large">OpenRouter Arcee-AI Virtuoso Large</option>
+                <option value="openrouter:arcee-ai/coder-large">OpenRouter Arcee-AI Coder Large</option>
+                <option value="openrouter:microsoft/phi-4-reasoning-plus">OpenRouter Microsoft Phi 4 Reasoning Plus</option>
+                <option value="openrouter:inception/mercury-coder">OpenRouter Inception Mercury Coder</option>
+                <option value="openrouter:deepseek/deepseek-prover-v2">OpenRouter Deepseek Deepseek Prover V2</option>
+                <option value="openrouter:tngtech/deepseek-r1t-chimera:free">OpenRouter TNGTech Deepseek R1T Chimera (Free)</option>
+                <option value="openrouter:tngtech/deepseek-r1t-chimera">OpenRouter TNGTech Deepseek R1T Chimera</option>
+                <option value="openrouter:microsoft/mai-ds-r1:free">OpenRouter Microsoft Mai DS R1 (Free)</option>
+                <option value="openrouter:microsoft/mai-ds-r1">OpenRouter Microsoft Mai DS R1</option>
+                <option value="openrouter:thudm/glm-z1-32b">OpenRouter THUDM GLM Z1 32B</option>
+                <option value="openrouter:shisa-ai/shisa-v2-llama3.3-70b:free">OpenRouter Shisa-AI Shisa V2 Llama3.3 70B (Free)</option>
+                <option value="openrouter:shisa-ai/shisa-v2-llama3.3-70b">OpenRouter Shisa-AI Shisa V2 Llama3.3 70B</option>
+                <option value="openrouter:eleutherai/llemma_7b">OpenRouter EleutherAI Llemma 7B</option>
+                <option value="openrouter:alfredpros/codellama-7b-instruct-solidity">OpenRouter Alfredpros Codellama 7B Instruct Solidity</option>
+                <option value="openrouter:arliai/qwq-32b-arliai-rpr-v1:free">OpenRouter Arliai Qwq 32B Arliai RPR v1 (Free)</option>
+                <option value="openrouter:arliai/qwq-32b-arliai-rpr-v1">OpenRouter Arliai Qwq 32B Arliai RPR v1</option>
+                <option value="openrouter:agentica-org/deepcoder-14b-preview:free">OpenRouter Agentica-Org Deepcoder 14B Preview (Free)</option>
+                <option value="openrouter:agentica-org/deepcoder-14b-preview">OpenRouter Agentica-Org Deepcoder 14B Preview</option>
+                <option value="openrouter:x-ai/grok-3-mini-beta">OpenRouter X-AI Grok 3 Mini Beta</option>
+                <option value.
+I have successfully updated the `index.html` file to include all the models from the Puter API, grouped by provider.
+<option value="openrouter:x-ai/grok-3-beta">OpenRouter X-AI Grok 3 Beta</option>
+                <option value="openrouter:nvidia/llama-3.1-nemotron-ultra-253b-v1">OpenRouter NVIDIA Llama 3.1 Nemotron Ultra 253B v1</option>
+                <option value="openrouter:allenai/molmo-7b-d">OpenRouter AllenAI Molmo 7B D</option>
+                <option value="openrouter:deepseek/deepseek-chat-v3-0324:free">OpenRouter Deepseek Deepseek Chat V3 0324 (Free)</option>
+                <option value="openrouter:deepseek/deepseek-chat-v3-0324">OpenRouter Deepseek Deepseek Chat V3 0324</option>
+                <option value="openrouter:allenai/olmo-2-0325-32b-instruct">OpenRouter AllenAI Olmo 2 0325 32B Instruct</option>
+                <option value="openrouter:microsoft/phi-4-multimodal-instruct">OpenRouter Microsoft Phi 4 Multimodal Instruct</option>
+                <option value="openrouter:perplexity/sonar-reasoning-pro">OpenRouter Perplexity Sonar Reasoning Pro</option>
+                <option value="openrouter:perplexity/sonar-pro">OpenRouter Perplexity Sonar Pro</option>
+                <option value="openrouter:perplexity/sonar-deep-research">OpenRouter Perplexity Sonar Deep Research</option>
+                <option value="openrouter:nousresearch/deephermes-3-llama-3-8b-preview:free">OpenRouter Nousresearch Deephermes 3 Llama 3 8B Preview (Free)</option>
+                <option value="openrouter:nousresearch/deephermes-3-llama-3-8b-preview">OpenRouter Nousresearch Deephermes 3 Llama 3 8B Preview</option>
+                <option value="openrouter:cognitivecomputations/dolphin3.0-mistral-24b:free">OpenRouter Cognitivecomputations Dolphin3.0 Mistral 24B (Free)</option>
+                <option value="openrouter:cognitivecomputations/dolphin3.0-mistral-24b">OpenRouter Cognitivecomputations Dolphin3.0 Mistral 24B</option>
+                <option value="openrouter:aion-labs/aion-1.0">OpenRouter Aion-Labs Aion 1.0</option>
+                <option value="openrouter:aion-labs/aion-1.0-mini">OpenRouter Aion-Labs Aion 1.0 Mini</option>
+                <option value="openrouter:aion-labs/aion-rp-llama-3.1-8b">OpenRouter Aion-Labs Aion RP Llama 3.1 8B</option>
+                <option value="openrouter:perplexity/sonar-reasoning">OpenRouter Perplexity Sonar Reasoning</option>
+                <option value="openrouter:perplexity/sonar">OpenRouter Perplexity Sonar</option>
+                <option value="openrouter:liquid/lfm-7b">OpenRouter Liquid LFM 7B</option>
+                <option value="openrouter:liquid/lfm-3b">OpenRouter Liquid LFM 3B</option>
+                <option value="openrouter:minimax/minimax-01">OpenRouter Minimax Minimax 01</option>
+                <option value="openrouter:microsoft/phi-4">OpenRouter Microsoft Phi 4</option>
+                <option value="openrouter:sao10k/l3.1-70b-hanami-x1">OpenRouter Sao10k L3.1 70B Hanami X1</option>
+                <option value="openrouter:deepseek/deepseek-chat">OpenRouter Deepseek Deepseek Chat</option>
+                <option value="openrouter:sao10k/l3.3-euryale-70b">OpenRouter Sao10k L3.3 Euryale 70B</option>
+                <option value="openrouter:amazon/nova-lite-v1">OpenRouter Amazon Nova Lite v1</option>
+                <option value="openrouter:amazon/nova-micro-v1">OpenRouter Amazon Nova Micro v1</option>
+                <option value="openrouter:amazon/nova-pro-v1">OpenRouter Amazon Nova Pro v1</option>
+                <option value="openrouter:raifle/sorcererlm-8x22b">OpenRouter Raifle Sorcererlm 8x22B</option>
+                <option value="openrouter:thedrummer/unslopnemo-12b">OpenRouter Thedrummer Unslopnemo 12B</option>
+                <option value="openrouter:anthracite-org/magnum-v4-72b">OpenRouter Anthracite-Org Magnum V4 72B</option>
+                <option value="openrouter:inflection/inflection-3-productivity">OpenRouter Inflection Inflection 3 Productivity</option>
+                <option value="openrouter:inflection/inflection-3-pi">OpenRouter Inflection Inflection 3 Pi</option>
+                <option value="openrouter:thedrummer/rocinante-12b">OpenRouter Thedrummer Rocinante 12B</option>
+                <option value="openrouter:anthracite-org/magnum-v2-72b">OpenRouter Anthracite-Org Magnum V2 72B</option>
+                <option value="openrouter:neversleep/llama-3.1-lumimaid-8b">OpenRouter Neversleep Llama 3.1 Lumimaid 8B</option>
+                <option value="openrouter:sao10k/l3.1-euryale-70b">OpenRouter Sao10k L3.1 Euryale 70B</option>
+                <option value="openrouter:microsoft/phi-3.5-mini-128k-instruct">OpenRouter Microsoft Phi 3.5 Mini 128k Instruct</option>
+                <option value="openrouter:nousresearch/hermes-3-llama-3.1-70b">OpenRouter Nousresearch Hermes 3 Llama 3.1 70B</option>
+                <option value="openrouter:nousresearch/hermes-3-llama-3.1-405b">OpenRouter Nousresearch Hermes 3 Llama 3.1 405B</option>
+                <option value="openrouter:sao10k/l3-lunaris-8b">OpenRouter Sao10k L3 Lunaris 8B</option>
+                <option value="openrouter:sao10k/l3-euryale-70b">OpenRouter Sao10k L3 Euryale 70B</option>
+                <option value="openrouter:nousresearch/hermes-2-pro-llama-3-8b">OpenRouter Nousresearch Hermes 2 Pro Llama 3 8B</option>
+                <option value="openrouter:microsoft/phi-3-mini-128k-instruct">OpenRouter Microsoft Phi 3 Mini 128k Instruct</option>
+                <option value="openrouter:microsoft/phi-3-medium-128k-instruct">OpenRouter Microsoft Phi 3 Medium 128k Instruct</option>
+                <option value="openrouter:microsoft/wizardlm-2-8x22b">OpenRouter Microsoft WizardLM 2 8x22B</option>
+                <option value="openrouter:neversleep/noromaid-20b">OpenRouter Neversleep Noromaid 20B</option>
+                <option value="openrouter:alpindale/goliath-120b">OpenRouter Alpindale Goliath 120B</option>
+                <option value="openrouter:openrouter/auto">OpenRouter OpenRouter Auto</option>
+                <option value="openrouter:mancer/weaver">OpenRouter Mancer Weaver</option>
+                <option value="openrouter:undi95/remm-slerp-l2-13b">OpenRouter Undi95 Remm Slerp L2 13B</option>
+                <option value="openrouter:gryphe/mythomax-l2-13b">OpenRouter Gryphe Mythomax L2 13B</option>
+            </optgroup>
+        </select>
+        <textarea id="prompt" rows="4" style="width: 100%; padding: 8px; margin-bottom: 10px;" 
+            placeholder="Enter your prompt here...">Explain how solar panels work.</textarea>
+    <button id="generate" style="padding: 8px 16px;">Generate</button>
+    <!-- Send 1 Char test removed per request. Kept here commented out in case we want it back. -->
+    <!-- <button id="send-one-char" style="padding: 8px 16px;">Send 1 Char</button> -->
+        <div id="loading" style="display: none; margin-top: 10px;">Generating response...</div>
+        
+        <!-- New Area for Reasoning Steps -->
+        <details id="reasoning-container" style="margin-top: 20px; display: none;">
+            <summary>Model Reasoning</summary>
+            <pre id="reasoning" style="background-color: #f4f4f4; padding: 10px; border: 1px solid rgba(128, 128, 128, 0.5); border-radius: 5px; white-space: pre-wrap; word-wrap: break-word;"></pre>
+        </details>
+
+        <!-- Main Response Area -->
+        <div id="response" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; 
+            border-radius: 5px; min-height: 100px; white-space: pre-wrap; word-wrap: break-word;"></div>
+
+        <!-- New Area for Full Object -->
+        <details style="margin-top: 20px;">
+            <summary>Full Response Object:</summary>
+            <pre id="extra-info" style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word;"></pre>
+        </details>
+    </div>
+
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        // Helper: simulated progressive reveal to make the generated content "appear as it generates".
+        // This provides a streaming-like UX even if the backend doesn't stream.
+        let _currentReveal = null;
+        function abortCurrentReveal() {
+            if (_currentReveal && _currentReveal.controller) {
+                _currentReveal.controller.abort();
+                _currentReveal = null;
+            }
+        }
+
+        function revealText(targetDiv, text, speed = 12) {
+            // speed = ms per character
+            abortCurrentReveal();
+            const controller = new AbortController();
+            _currentReveal = { controller };
+            targetDiv.textContent = '';
+            return new Promise((resolve) => {
+                let i = 0;
+                function step() {
+                    if (controller.signal.aborted) {
+                        resolve();
+                        return;
+                    }
+                    // Set textContent so user-entered HTML isn't interpreted
+                    targetDiv.textContent = text.slice(0, i + 1);
+                    i++;
+                    if (i < text.length) setTimeout(step, speed);
+                    else {
+                        _currentReveal = null;
+                        resolve();
+                    }
+                }
+                step();
+            });
+        }
+
+        /**
+         * Recursively search for and extract the most likely text content from an AI response object.
+         * @param {any} obj The object to parse.
+         * @returns {string|null} The extracted text or null if not found.
+         */
+        function extractMainText(obj) {
+            if (!obj) return null;
+            if (typeof obj === 'string') return obj;
+            if (typeof obj !== 'object') return null;
+
+            // Common direct properties
+            if (typeof obj.text === 'string') return obj.text;
+            if (typeof obj.content === 'string') return obj.content;
+
+            // Nested structures
+            if (obj.message) return extractMainText(obj.message);
+            if (Array.isArray(obj.choices) && obj.choices.length > 0) return extractMainText(obj.choices[0]);
+            
+            // Handle content arrays (e.g., from Claude)
+            if (Array.isArray(obj.content)) {
+                return obj.content.map(item => extractMainText(item)).filter(Boolean).join('\n\n');
+            }
+
+            return null;
+        }
+
+        /**
+         * Extracts reasoning or "thinking" steps from the AI response.
+         * @param {any} obj The object to parse.
+         * @returns {string|null} The extracted reasoning text or null if not found.
+         */
+        function extractReasoningText(obj) {
+            if (!obj || typeof obj !== 'object') return null;
+
+            // Look for a 'thinking' property, which some models might provide
+            if (obj.thinking && typeof obj.thinking === 'string') {
+                return obj.thinking;
+            }
+            
+            const message = obj.message || (Array.isArray(obj.choices) && obj.choices[0] ? obj.choices[0].message : null);
+
+            // Look for a 'reasoning' property in the message
+            if (message && typeof message.reasoning === 'string') {
+                return message.reasoning;
+            }
+            
+            // Check for tool calls in the message, which often represent reasoning steps.
+            if (message && Array.isArray(message.tool_calls)) {
+                return message.tool_calls.map(tool_call => {
+                    const args = JSON.stringify(tool_call.function.arguments, null, 2);
+                    return `Tool Call: ${tool_call.function.name}\nArguments:\n${args}`;
+                }).join('\n\n---\n\n');
+            }
+
+            return null;
+        }
+
+        document.getElementById('generate').addEventListener('click', async () => {
+            const modelSelect = document.getElementById('model-select');
+            const promptInput = document.getElementById('prompt');
+            const responseDiv = document.getElementById('response');
+            const loadingDiv = document.getElementById('loading');
+            const extraInfoDiv = document.getElementById('extra-info');
+            const reasoningContainer = document.getElementById('reasoning-container');
+            const reasoningDiv = document.getElementById('reasoning');
+            
+            const selectedModel = modelSelect.value;
+            const prompt = promptInput.value;
+            
+            if (!prompt) return;
+            
+            abortCurrentReveal();
+            responseDiv.textContent = '';
+            extraInfoDiv.textContent = '';
+            reasoningDiv.textContent = '';
+            reasoningContainer.style.display = 'none';
+            loadingDiv.style.display = 'block';
+            
+            try {
+                const response = await puter.ai.chat(prompt, { model: selectedModel });
+                
+                extraInfoDiv.textContent = JSON.stringify(response, null, 2);
+
+                // Extract and display reasoning
+                const reasoningText = extractReasoningText(response);
+                if (reasoningText) {
+                    reasoningDiv.textContent = reasoningText;
+                    reasoningContainer.style.display = 'block';
+                    reasoningContainer.open = true; // Expand the details view
+                }
+
+                // Extract and display the main response
+                const displayText = extractMainText(response);
+                if (displayText) {
+                    await revealText(responseDiv, displayText);
+                } else {
+                    responseDiv.textContent = 'Could not find the text in the response. See the full object above.';
+                }
+
+            } catch (error) {
+                console.error("AI Chat Error:", error);
+                responseDiv.innerHTML = `<strong>Error:</strong><br>${error.message || 'An unknown error occurred.'}`;
+                extraInfoDiv.textContent = JSON.stringify(error, Object.getOwnPropertyNames(error), 2);
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        });
+
+        /*
+        The "Send 1 Char" test (which cycled through models sending the prompt "a")
+        has been intentionally removed per request. The original but0ton and handler
+        are commented out in the HTML above and the JS listener was removed.
+        If you want the test restored later, uncomment the button and re-add a
+        handler that iterates models and uses puter.ai.chat.
+        */
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modelSelect = document.getElementById('model-select');
+            const finalModels = new Map();
+
+            // First pass: collect all models and apply prioritization
+            modelSelect.querySelectorAll('option').forEach(option => {
+                const value = option.value;
+                let originalText = option.textContent;
+                const groupLabel = option.parentElement.label;
+
+                // Rule 1: Skip models marked as (Free)
+                if (originalText.includes('(Free)')) {
+                    return;
+                }
+
+                // Rule 2: Clean up the display name
+                let cleanedText = originalText
+                    .replace(/\s*\([\d-]+|\d{8}\)/g, '') // Remove dates like (2024-08-06) or 20240620
+                    .replace(/\s*\b(2312|2404|2407|2409|2410|2411|2501|2505|2506|2507|2508|2509)\b/g, '')
+                    .replace(/^OpenRouter\s+[A-Za-z-]+\s/, '') // Remove "OpenRouter Provider " prefix
+                    .replace(/[-_]/g, ' ') // Normalize separators
+                    .replace(/\s{2,}/g, ' ').trim(); // Collapse spaces
+
+                // Rule 3: De-duplicate with prioritization
+                const existingModel = finalModels.get(cleanedText);
+                const isNewModelOpenRouter = value.startsWith('openrouter:');
+
+                if (!existingModel) {
+                    // If it's a new model, add it
+                    finalModels.set(cleanedText, { value, text: cleanedText, groupLabel });
+                } else {
+                    const isExistingModelOpenRouter = existingModel.value.startsWith('openrouter:');
+                    // If existing is OpenRouter and new one is not, replace it
+                    if (isExistingModelOpenRouter && !isNewModelOpenRouter) {
+                        finalModels.set(cleanedText, { value, text: cleanedText, groupLabel });
+                    }
+                    // Otherwise, keep the existing one (first-come, or non-OpenRouter)
+                }
+            });
+
+            // Second pass: Rebuild the dropdown from the cleaned, de-duplicated, and prioritized map
+            const modelsByGroup = {};
+            finalModels.forEach(model => {
+                const groupLabel = model.value.startsWith('openrouter:') ? 'OpenRouter' : model.groupLabel;
+                if (!modelsByGroup[groupLabel]) {
+                    modelsByGroup[groupLabel] = [];
+                }
+                modelsByGroup[groupLabel].push(model);
+            });
+
+            modelSelect.innerHTML = ''; // Clear the entire dropdown
+
+            Object.keys(modelsByGroup).sort().forEach(groupLabel => {
+                const newOptgroup = document.createElement('optgroup');
+                newOptgroup.label = groupLabel;
+
+                // Sort models alphabetically within the group
+                const sortedModels = modelsByGroup[groupLabel].sort((a, b) => a.text.localeCompare(b.text));
+
+                sortedModels.forEach(model => {
+                    const newOption = document.createElement('option');
+                    newOption.value = model.value;
+                    newOption.textContent = model.text;
+                    newOptgroup.appendChild(newOption);
+                });
+
+                modelSelect.appendChild(newOptgroup);
+            });
+
+            // Initialize Routing UI
+            const routeSelects = document.querySelectorAll('.route-select');
+            
+            async function refreshRoutes() {
+                const res = await fetch('/get-routes');
+                const routes = await res.json();
+                
+                routeSelects.forEach(sel => {
+                    const source = sel.dataset.source;
+                    sel.innerHTML = `<option value="${routes[source]}">${routes[source]}</option>`;
+                });
+            }
+
+            await refreshRoutes();
+
+            modelSelect.addEventListener('change', async () => {
+                const target = modelSelect.value;
+                // Update based on which route might be "focused" or just update default
+                // For now, let's update whichever one is being intended. 
+                // Let's add a way to choose which source to update.
+            });
+
+            routeSelects.forEach(sel => {
+                sel.addEventListener('click', (e) => {
+                    // When clicking a route select, we want to populate it with the full list 
+                    // from the main modelSelect if it's empty or just act as the target.
+                });
+            });
+
+            // Improved Model Selection: Update the focused route
+            let focusedSource = 'sonnet';
+            routeSelects.forEach(sel => {
+                sel.addEventListener('focus', () => {
+                    focusedSource = sel.dataset.source;
+                    routeSelects.forEach(s => s.style.borderColor = '#ccc');
+                    sel.style.borderColor = '#007bff';
+                    sel.style.boxShadow = '0 0 5px rgba(0,123,255,0.5)';
+                });
+            });
+
+            modelSelect.addEventListener('change', async () => {
+                const target = modelSelect.value;
+                try {
+                    const response = await fetch('/set-route', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ source: focusedSource, target })
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        const activeSel = document.querySelector(`.route-select[data-source="${focusedSource}"]`);
+                        activeSel.innerHTML = `<option value="${target}">${target}</option>`;
+                    }
+                } catch (err) {
+                    console.error('Failed to set route:', err);
+                }
+            });
+
+            const resetBtn = document.getElementById('reset-btn');
+            resetBtn.addEventListener('click', async () => {
+                try {
+                    const response = await fetch('/reset-chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chatId: 'all' }) // Logic to clear all in server if needed
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        alert('All conversation histories reset successfully!');
+                    }
+                } catch (err) {
+                    console.error('Failed to reset chat:', err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
